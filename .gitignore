@@ -11,7 +11,8 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-
+# Report
+report.html
 # AWS User-specific
 .idea/**/aws.xml
 
