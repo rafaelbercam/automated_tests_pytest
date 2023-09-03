@@ -9,14 +9,16 @@ class TestUsers:
 
     def test_get_users(self):
         get_response = request.get_user(None)
+        get_response_json = get_response.json()
         assert get_response.status_code == 200
+        print(get_response_json)
 
     def test_post_user(self):
         user_payload = user_data.new_user_payload()
         post_response = request.create_user(user_payload)
         user_json = post_response.json()
-        print(user_json)
         assert post_response.status_code == 201
+        print(user_json)
 
     def test_get_user_by_id(self):
         # create user
@@ -31,6 +33,7 @@ class TestUsers:
         assert user_by_id_response.status_code == 200
         assert user_payload["nome"] == user_by_id_data["nome"]
         assert user_payload["email"] == user_by_id_data["email"]
+        print(user_by_id_data)
 
     def test_delete_user(self):
         # create user
@@ -44,6 +47,7 @@ class TestUsers:
         user_delete_json = user_delete_response.json()
         assert user_delete_response.status_code == 200
         assert user_delete_json["message"] == "Registro excluído com sucesso"
+        print(user_delete_json)
 
     def test_put_user(self):
         # create user
@@ -58,3 +62,4 @@ class TestUsers:
         update_user_json = update_user_response.json()
         assert update_user_response.status_code == 200
         assert update_user_json["message"] == "Registro alterado com sucesso"
+        print(update_user_json)

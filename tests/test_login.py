@@ -28,6 +28,7 @@ class TestLogin:
         login_json = login_response.json()
         assert login_response.status_code == 200
         assert login_json["message"] == "Login realizado com sucesso"
+        print(login_json)
 
     def test_login_fail(self):
         login_payload = login_data.new_login_payload(pytest.email, "wrong_password")
@@ -35,6 +36,7 @@ class TestLogin:
         login_json = login_response.json()
         assert login_response.status_code == 401
         assert login_json["message"] == "Email e/ou senha inválidos"
+        print(login_json)
 
     def test_login_without_email(self):
         login_payload = login_data.new_login_payload("", pytest.password)
@@ -42,3 +44,4 @@ class TestLogin:
         login_json = login_response.json()
         assert login_response.status_code == 400
         assert login_json["email"] == "email não pode ficar em branco"
+        print(login_json)
