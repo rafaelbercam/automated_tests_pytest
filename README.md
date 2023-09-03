@@ -35,7 +35,7 @@ Clone project
 - Instale todas as dependências:
 
 
-`pip install`
+`pip install -r requirements.txt`
 
 ## __Rodar os testes__
 Basta rodar o comando
