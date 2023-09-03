@@ -14,6 +14,8 @@ class TestUsers:
     def test_post_user(self):
         user_payload = user_data.new_user_payload()
         post_response = request.create_user(user_payload)
+        user_json = post_response.json()
+        print(user_json)
         assert post_response.status_code == 201
 
     def test_get_user_by_id(self):
