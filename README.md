@@ -54,7 +54,36 @@ O projeto esta dividido da seguinte maneira:
            [services] -> Classe que possui funções que retornam as requisições para a camada de testes
            [setup] -> Classe para configurar variáveis, constrantes sobre o ambiente de testes
            [tests] -> Classes de teste do Pytest
+            .env -> Arquivo com variáveis de ambiente
 
+### __.env__
+
+* criar na raiz do projeto um arquivo .env com os valores
+
+```txt
+BASE_URL=http://localhost:3000
+```
+ou
+```txt
+BASE_URL=https://serverest.dev
+```
+
+* esta variável é inicializada na Classe Setup.py para criar a BASE_URL do projeto
+
+```python
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+
+class SetupClass:
+
+    @staticmethod
+    def base_url():
+        return os.getenv("BASE_URL")
+
+```
 
 ### __data__
 São classes que retornam objetos de acordo com os paramentros enviados em uma requisição.
