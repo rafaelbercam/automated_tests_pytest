@@ -19,7 +19,7 @@ npx serverest@latest
 
 ```
 
-## Pré Requisitos REST-assured
+## Pré Requisitos Pytest
 
 - [Python 3](https://www.python.org/)
 
